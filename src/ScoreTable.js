@@ -31,31 +31,37 @@ class ScoreTable extends Component {
 								name="Ones"
 								score={scores.ones}
 								doScore={(evt) => doScore("ones", ones.evalRoll)}
+								dice={this.props.dice}
 							/>
 							<RuleRow
 								name="Twos"
 								score={scores.twos}
 								doScore={(evt) => doScore("twos", twos.evalRoll)}
+								dice={this.props.dice}
 							/>
 							<RuleRow
 								name="Threes"
 								score={scores.threes}
 								doScore={(evt) => doScore("threes", threes.evalRoll)}
+								dice={this.props.dice}
 							/>
 							<RuleRow
 								name="Fours"
 								score={scores.fours}
 								doScore={(evt) => doScore("fours", fours.evalRoll)}
+								dice={this.props.dice}
 							/>
 							<RuleRow
 								name="Fives"
 								score={scores.fives}
 								doScore={(evt) => doScore("fives", fives.evalRoll)}
+								dice={this.props.dice}
 							/>
 							<RuleRow
 								name="Sixes"
 								score={scores.sixes}
 								doScore={(evt) => doScore("sixes", sixes.evalRoll)}
+								dice={this.props.dice}
 							/>
 						</tbody>
 					</table>
@@ -68,16 +74,19 @@ class ScoreTable extends Component {
 								name="Three of Kind"
 								score={scores.threeOfKind}
 								doScore={(evt) => doScore("threeOfKind", threeOfKind.evalRoll)}
+								dice={this.props.dice}
 							/>
 							<RuleRow
 								name="Four of Kind"
 								score={scores.fourOfKind}
 								doScore={(evt) => doScore("fourOfKind", fourOfKind.evalRoll)}
+								dice={this.props.dice}
 							/>
 							<RuleRow
 								name="Full House"
 								score={scores.fullHouse}
 								doScore={(evt) => doScore("fullHouse", fullHouse.evalRoll)}
+								dice={this.props.dice}
 							/>
 							<RuleRow
 								name="Small Straight"
@@ -85,6 +94,7 @@ class ScoreTable extends Component {
 								doScore={(evt) =>
 									doScore("smallStraight", smallStraight.evalRoll)
 								}
+								dice={this.props.dice}
 							/>
 							<RuleRow
 								name="Large Straight"
@@ -92,16 +102,19 @@ class ScoreTable extends Component {
 								doScore={(evt) =>
 									doScore("largeStraight", largeStraight.evalRoll)
 								}
+								dice={this.props.dice}
 							/>
 							<RuleRow
 								name="Yahtzee"
 								score={scores.yahtzee}
 								doScore={(evt) => doScore("yahtzee", yahtzee.evalRoll)}
+								dice={this.props.dice}
 							/>
 							<RuleRow
 								name="Chance"
 								score={scores.chance}
 								doScore={(evt) => doScore("chance", chance.evalRoll)}
+								dice={this.props.dice}
 							/>
 						</tbody>
 					</table>
