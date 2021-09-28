@@ -4,6 +4,7 @@ import "./Die.css";
 class Die extends Component {
 	static defaultProps = {
 		numWords: ["one", "two", "three", "four", "five", "six"],
+		val: 5,
 	};
 
 	constructor(props) {
@@ -22,7 +23,7 @@ class Die extends Component {
 		if (locked) {
 			classNames += "Die-locked ";
 		}
-		if (isRolling && !locked) {
+		if (isRolling) {
 			classNames += "Die-rolling";
 		}
 
