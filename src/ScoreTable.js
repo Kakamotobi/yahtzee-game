@@ -30,38 +30,38 @@ class ScoreTable extends Component {
 							<RuleRow
 								name="Ones"
 								score={scores.ones}
+								desc={ones.desc}
 								doScore={(evt) => doScore("ones", ones.evalRoll)}
-								dice={this.props.dice}
 							/>
 							<RuleRow
 								name="Twos"
 								score={scores.twos}
+								desc={twos.desc}
 								doScore={(evt) => doScore("twos", twos.evalRoll)}
-								dice={this.props.dice}
 							/>
 							<RuleRow
 								name="Threes"
 								score={scores.threes}
+								desc={threes.desc}
 								doScore={(evt) => doScore("threes", threes.evalRoll)}
-								dice={this.props.dice}
 							/>
 							<RuleRow
 								name="Fours"
 								score={scores.fours}
+								desc={fours.desc}
 								doScore={(evt) => doScore("fours", fours.evalRoll)}
-								dice={this.props.dice}
 							/>
 							<RuleRow
 								name="Fives"
 								score={scores.fives}
+								desc={fives.desc}
 								doScore={(evt) => doScore("fives", fives.evalRoll)}
-								dice={this.props.dice}
 							/>
 							<RuleRow
 								name="Sixes"
 								score={scores.sixes}
+								desc={sixes.desc}
 								doScore={(evt) => doScore("sixes", sixes.evalRoll)}
-								dice={this.props.dice}
 							/>
 						</tbody>
 					</table>
@@ -73,48 +73,48 @@ class ScoreTable extends Component {
 							<RuleRow
 								name="Three of Kind"
 								score={scores.threeOfKind}
+								desc={threeOfKind.desc}
 								doScore={(evt) => doScore("threeOfKind", threeOfKind.evalRoll)}
-								dice={this.props.dice}
 							/>
 							<RuleRow
 								name="Four of Kind"
 								score={scores.fourOfKind}
+								desc={fourOfKind.desc}
 								doScore={(evt) => doScore("fourOfKind", fourOfKind.evalRoll)}
-								dice={this.props.dice}
 							/>
 							<RuleRow
 								name="Full House"
 								score={scores.fullHouse}
+								desc={fullHouse.desc}
 								doScore={(evt) => doScore("fullHouse", fullHouse.evalRoll)}
-								dice={this.props.dice}
 							/>
 							<RuleRow
 								name="Small Straight"
 								score={scores.smallStraight}
+								desc={smallStraight.desc}
 								doScore={(evt) =>
 									doScore("smallStraight", smallStraight.evalRoll)
 								}
-								dice={this.props.dice}
 							/>
 							<RuleRow
 								name="Large Straight"
 								score={scores.largeStraight}
+								desc={largeStraight.desc}
 								doScore={(evt) =>
 									doScore("largeStraight", largeStraight.evalRoll)
 								}
-								dice={this.props.dice}
 							/>
 							<RuleRow
 								name="Yahtzee"
 								score={scores.yahtzee}
+								desc={yahtzee.desc}
 								doScore={(evt) => doScore("yahtzee", yahtzee.evalRoll)}
-								dice={this.props.dice}
 							/>
 							<RuleRow
 								name="Chance"
 								score={scores.chance}
+								desc={chance.desc}
 								doScore={(evt) => doScore("chance", chance.evalRoll)}
-								dice={this.props.dice}
 							/>
 						</tbody>
 					</table>
