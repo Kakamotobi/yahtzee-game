@@ -13,6 +13,7 @@ class Game extends Component {
 			dice: Array.from({ length: NUM_DICE }),
 			locked: Array(NUM_DICE).fill(false),
 			rollsLeft: NUM_ROLLS,
+			isRolling: false,
 			scores: {
 				ones: undefined,
 				twos: undefined,
@@ -42,7 +43,12 @@ class Game extends Component {
 			),
 			locked: st.rollsLeft > 1 ? st.locked : Array(NUM_DICE).fill(true),
 			rollsLeft: st.rollsLeft - 1,
+			isRolling: true,
 		}));
+
+		setTimeout(() => {
+			this.setState({ isRolling: false });
+		}, 1000);
 	}
 
 	toggleLocked(idx) {
@@ -79,6 +85,8 @@ class Game extends Component {
 							dice={this.state.dice}
 							locked={this.state.locked}
 							toggleLocked={this.toggleLocked}
+							disabled={this.state.rollsLeft === 0}
+							isRolling={this.state.isRolling}
 						/>
 						<div className="Game-button-wrapper">
 							<button

@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import "./Die.css";
 
 class Die extends Component {
+	static defaultProps = {
+		numWords: ["one", "two", "three", "four", "five", "six"],
+	};
+
 	constructor(props) {
 		super(props);
 
@@ -12,14 +16,22 @@ class Die extends Component {
 		this.props.toggleLocked(this.props.idx);
 	}
 	render() {
+		const { numWords, val, locked, disabled, isRolling } = this.props;
+
+		let classNames = `Die fas fa-dice-${numWords[val - 1]} fa-5x `;
+		if (locked) {
+			classNames += "Die-locked ";
+		}
+		if (isRolling && !locked) {
+			classNames += "Die-rolling";
+		}
+
 		return (
-			<button
-				className={"Die"}
-				style={{ backgroundColor: this.props.locked ? "grey" : "black" }}
+			<i
+				className={classNames}
 				onClick={this.handleToggleLocked}
-			>
-				{this.props.val}
-			</button>
+				disabled={disabled}
+			/>
 		);
 	}
 }
