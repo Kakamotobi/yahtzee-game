@@ -31,7 +31,7 @@ class ScoreTable extends Component {
 	}
 
 	render() {
-		const { scores, doScore } = this.props;
+		const { scores, doScore, isRolling } = this.props;
 
 		return (
 			<div className="ScoreTable">
@@ -43,37 +43,49 @@ class ScoreTable extends Component {
 								name="Ones"
 								score={scores.ones}
 								desc={ones.desc}
-								doScore={(evt) => doScore("ones", ones.evalRoll)}
+								doScore={
+									isRolling ? null : (evt) => doScore("ones", ones.evalRoll)
+								}
 							/>
 							<RuleRow
 								name="Twos"
 								score={scores.twos}
 								desc={twos.desc}
-								doScore={(evt) => doScore("twos", twos.evalRoll)}
+								doScore={
+									isRolling ? null : (evt) => doScore("twos", twos.evalRoll)
+								}
 							/>
 							<RuleRow
 								name="Threes"
 								score={scores.threes}
 								desc={threes.desc}
-								doScore={(evt) => doScore("threes", threes.evalRoll)}
+								doScore={
+									isRolling ? null : (evt) => doScore("threes", threes.evalRoll)
+								}
 							/>
 							<RuleRow
 								name="Fours"
 								score={scores.fours}
 								desc={fours.desc}
-								doScore={(evt) => doScore("fours", fours.evalRoll)}
+								doScore={
+									isRolling ? null : (evt) => doScore("fours", fours.evalRoll)
+								}
 							/>
 							<RuleRow
 								name="Fives"
 								score={scores.fives}
 								desc={fives.desc}
-								doScore={(evt) => doScore("fives", fives.evalRoll)}
+								doScore={
+									isRolling ? null : (evt) => doScore("fives", fives.evalRoll)
+								}
 							/>
 							<RuleRow
 								name="Sixes"
 								score={scores.sixes}
 								desc={sixes.desc}
-								doScore={(evt) => doScore("sixes", sixes.evalRoll)}
+								doScore={
+									isRolling ? null : (evt) => doScore("sixes", sixes.evalRoll)
+								}
 							/>
 						</tbody>
 					</table>
@@ -86,47 +98,69 @@ class ScoreTable extends Component {
 								name="Three of Kind"
 								score={scores.threeOfKind}
 								desc={threeOfKind.desc}
-								doScore={(evt) => doScore("threeOfKind", threeOfKind.evalRoll)}
+								doScore={
+									isRolling
+										? null
+										: (evt) => doScore("threeOfKind", threeOfKind.evalRoll)
+								}
 							/>
 							<RuleRow
 								name="Four of Kind"
 								score={scores.fourOfKind}
 								desc={fourOfKind.desc}
-								doScore={(evt) => doScore("fourOfKind", fourOfKind.evalRoll)}
+								doScore={
+									isRolling
+										? null
+										: (evt) => doScore("fourOfKind", fourOfKind.evalRoll)
+								}
 							/>
 							<RuleRow
 								name="Full House"
 								score={scores.fullHouse}
 								desc={fullHouse.desc}
-								doScore={(evt) => doScore("fullHouse", fullHouse.evalRoll)}
+								doScore={
+									isRolling
+										? null
+										: (evt) => doScore("fullHouse", fullHouse.evalRoll)
+								}
 							/>
 							<RuleRow
 								name="Small Straight"
 								score={scores.smallStraight}
 								desc={smallStraight.desc}
-								doScore={(evt) =>
-									doScore("smallStraight", smallStraight.evalRoll)
+								doScore={
+									isRolling
+										? null
+										: (evt) => doScore("smallStraight", smallStraight.evalRoll)
 								}
 							/>
 							<RuleRow
 								name="Large Straight"
 								score={scores.largeStraight}
 								desc={largeStraight.desc}
-								doScore={(evt) =>
-									doScore("largeStraight", largeStraight.evalRoll)
+								doScore={
+									isRolling
+										? null
+										: (evt) => doScore("largeStraight", largeStraight.evalRoll)
 								}
 							/>
 							<RuleRow
 								name="Yahtzee"
 								score={scores.yahtzee}
 								desc={yahtzee.desc}
-								doScore={(evt) => doScore("yahtzee", yahtzee.evalRoll)}
+								doScore={
+									isRolling
+										? null
+										: (evt) => doScore("yahtzee", yahtzee.evalRoll)
+								}
 							/>
 							<RuleRow
 								name="Chance"
 								score={scores.chance}
 								desc={chance.desc}
-								doScore={(evt) => doScore("chance", chance.evalRoll)}
+								doScore={
+									isRolling ? null : (evt) => doScore("chance", chance.evalRoll)
+								}
 							/>
 						</tbody>
 					</table>

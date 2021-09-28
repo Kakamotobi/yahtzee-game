@@ -123,7 +123,12 @@ class Game extends Component {
 						</div>
 					</section>
 				</header>
-				<ScoreTable doScore={this.doScore} scores={scores} dice={dice} />
+				<ScoreTable
+					doScore={this.doScore}
+					scores={scores}
+					dice={dice}
+					isRolling={isRolling}
+				/>
 			</div>
 		);
 	}
