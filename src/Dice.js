@@ -4,17 +4,19 @@ import "./Dice.css";
 
 class Dice extends Component {
 	render() {
+		const { dice, toggleLocked, locked, rollsLeft, isRolling } = this.props;
+
 		return (
 			<div className="Dice">
-				{this.props.dice.map((d, idx) => (
+				{dice.map((d, idx) => (
 					<Die
-						toggleLocked={this.props.toggleLocked}
+						toggleLocked={toggleLocked}
 						val={d}
-						locked={this.props.locked[idx]}
+						locked={locked[idx]}
 						idx={idx}
 						key={idx}
-						disabled={this.props.disabled}
-						isRolling={this.props.isRolling && !this.props.locked[idx]}
+						rollsLeft={rollsLeft}
+						isRolling={isRolling}
 					/>
 				))}
 			</div>

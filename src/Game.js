@@ -34,6 +34,7 @@ class Game extends Component {
 		this.animateRoll = this.animateRoll.bind(this);
 		this.toggleLocked = this.toggleLocked.bind(this);
 		this.doScore = this.doScore.bind(this);
+		this.playAgain = this.playAgain.bind(this);
 	}
 
 	componentDidMount() {
@@ -41,7 +42,7 @@ class Game extends Component {
 	}
 
 	roll(evt) {
-		// roll dice whose indexes are in reroll
+		// roll dice whose indices are in reroll
 		this.setState((st) => ({
 			dice: st.dice.map((d, i) =>
 				st.locked[i] ? d : Math.ceil(Math.random() * 6)
@@ -50,9 +51,7 @@ class Game extends Component {
 			rollsLeft: st.rollsLeft - 1,
 		}));
 
-		setTimeout(() => {
-			this.setState({ isRolling: false });
-		}, 1000);
+		this.setState({ isRolling: false });
 	}
 
 	animateRoll() {
@@ -62,16 +61,14 @@ class Game extends Component {
 	}
 
 	toggleLocked(idx) {
-		if (this.state.rollsLeft > 0 && !this.state.isRolling) {
-			// toggle whether idx is in locked or not
-			this.setState((st) => ({
-				locked: [
-					...st.locked.slice(0, idx),
-					!st.locked[idx],
-					...st.locked.slice(idx + 1),
-				],
-			}));
-		}
+		// toggle whether idx is in locked or not
+		this.setState((st) => ({
+			locked: [
+				...st.locked.slice(0, idx),
+				!st.locked[idx],
+				...st.locked.slice(idx + 1),
+			],
+		}));
 	}
 
 	doScore(rulename, ruleFn) {
@@ -94,6 +91,32 @@ class Game extends Component {
 		return messages[this.state.rollsLeft];
 	}
 
+	playAgain() {
+		this.setState({
+			dice: Array.from({ length: NUM_DICE }),
+			locked: Array(NUM_DICE).fill(false),
+			rollsLeft: NUM_ROLLS,
+			isRolling: false,
+			scores: {
+				ones: undefined,
+				twos: undefined,
+				threes: undefined,
+				fours: undefined,
+				fives: undefined,
+				sixes: undefined,
+				threeOfKind: undefined,
+				fourOfKind: undefined,
+				fullHouse: undefined,
+				smallStraight: undefined,
+				largeStraight: undefined,
+				yahtzee: undefined,
+				chance: undefined,
+			},
+		});
+
+		this.animateRoll();
+	}
+
 	render() {
 		const { dice, locked, rollsLeft, isRolling, scores } = this.state;
 
@@ -107,7 +130,7 @@ class Game extends Component {
 							dice={dice}
 							locked={locked}
 							toggleLocked={this.toggleLocked}
-							disabled={rollsLeft === 0}
+							rollsLeft={rollsLeft}
 							isRolling={isRolling}
 						/>
 						<div className="Game-button-wrapper">
@@ -126,8 +149,8 @@ class Game extends Component {
 				<ScoreTable
 					doScore={this.doScore}
 					scores={scores}
-					dice={dice}
 					isRolling={isRolling}
+					playAgain={this.playAgain}
 				/>
 			</div>
 		);

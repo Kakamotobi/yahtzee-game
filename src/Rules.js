@@ -50,7 +50,7 @@ class TotalOneNumber extends Rule {
 
 class SumDistro extends Rule {
 	evalRoll = (dice) => {
-		// do any of the counts meet or exceed this distro?
+		// do any of the counts meet of exceed this distro?
 		return this.freq(dice).some((c) => c >= this.count) ? this.sum(dice) : 0;
 	};
 }
@@ -78,7 +78,6 @@ class SmallStraight extends Rule {
 		if (d.has(3) && d.has(4) && d.has(5) && (d.has(2) || d.has(6))) {
 			return this.score;
 		}
-
 		return 0;
 	};
 }
@@ -114,11 +113,11 @@ const sixes = new TotalOneNumber({ val: 6, desc: "6 points per 6" });
 // three/four of kind score as sum of all dice
 const threeOfKind = new SumDistro({
 	count: 3,
-	desc: "Sum all dice if 3 are the same",
+	desc: "Sum all dice if three are the same",
 });
 const fourOfKind = new SumDistro({
 	count: 4,
-	desc: "Sum all dice if 4 are the same",
+	desc: "Sum all dice if four are the same",
 });
 
 // full house scores as flat 25
@@ -140,7 +139,7 @@ const largeStraight = new LargeStraight({
 // yahtzee scores as 50
 const yahtzee = new Yahtzee({ score: 50, desc: "50 points for yahtzee" });
 
-// for chance, can view as sum of all dice, requiring at least 0 of a kind
+// for chance, can view as some of all dice, requiring at least 0 of a kind
 const chance = new SumDistro({ count: 0, desc: "Sum of all dice" });
 
 export {
