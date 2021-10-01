@@ -4,6 +4,14 @@
 
 - A game of Yahtzee.
 
+## Demo
+
+![demo](yahtzee-game-demo.gif)
+
+## Link
+
+Live-site URL:
+
 ## My Process
 
 ### Built With
