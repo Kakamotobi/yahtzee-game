@@ -8,19 +8,13 @@
 
 ![demo](yahtzee-game-demo.gif)
 
-## Link
-
-Live-site URL:
-
-## My Process
+## Development Process
 
 ### Built With
 
-- HTML
-- CSS
 - React
 
-## What I Learned/Applied
+## Applied Concepts
 
 - React props, states, forms, and events.
 - React lifecycle (`componentDidMount()`)
